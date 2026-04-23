@@ -1,0 +1,22 @@
+Create 2 buckets name bkt1 and bkt2 --> public
+upload index.html and load.html on bkt1 --> enable website hosting
+Access the bkt1 website endpoint, load.html will load because load.html is in same bucket
+
+upload load.html only on bkt2, make it public --> enable website hosting
+take the load.html url/Endpoint from bkt2
+
+update the URL on index.html on bkt1 (load load.html from bkt2 on bkt1)
+Access the bkt1 website endpoint, load.html will NOT load, because load.html is in another bucket
+enable cors on bkt2
+Now, access the bkt1 index.html, load.html will work now, because CORS is enabled
+
+<CORSConfiguration>
+    <CORSRule>
+        <AllowedOrigin>*</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <AllowedMethod>PUT</AllowedMethod>
+        <AllowedMethod>POST</AllowedMethod>
+        <AllowedMethod>DELETE</AllowedMethod>
+        <AllowedHeader>*</AllowedHeader>
+    </CORSRule>
+</CORSConfiguration>
