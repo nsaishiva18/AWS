@@ -1,0 +1,105 @@
+Do not expose EC2 instances to the internet in real time / Dont assign Public IP to EC2 instances
+in real time. If necessary yes. 
+
+While launching the EC2 instance, 2 Network interfaces can be attached.
+Network Interface 1 - Device 0 - Private IP
+Network Interface 2 - Device 1 - Public IP
+
+1 EC2 instance can have multiple Private IP's like Primary and Secondary 
+
+An Elastic Fabric Adapter is a network device that you can attach to your instances to reduce 
+latency and increase throughput for distributed High Performance Computing (HPC) 
+and Machine Learning (ML) applications.
+
+This EFA is not for all instance types.
+
+ENA Express TCP and ENA Express UDP is for increasing the network performance.
+
+If you assign Network Interface 2 for Private IP, you cannot assign Public IP anymore to the EC2 instance
+
+Nitro Enclave : A Nitro Enclave is a trusted execution environment (TEE) 
+in which you can securely process sensitive data.
+
+Nitro Enclaves are not compatible with instance types that have less than 2 vCPUs.
+
+
+If the Public IP address of the EC2 instance changes, Public DNS will also Change.
+
+To edit your instance's user data you first need to stop your instance.
+
+Any changes in the SG will be affected immediately
+
+It is possible to attach/detach a IAM ROLE while EC2 is running.
+
+It is not possible to Edit the Launch Template, create a new version or create a new LT.
+
+LT contains only configurations not volume data, if you need data go for snapshot or AMI
+
+If you reboot the EC2 instance, Instance status will not change. It will be in running state only.
+
+IMAGES
+==========
+
+While creating a image, it includes volumes also.
+
+While Creating a image, volumes can be modified (size).
+
+If EC2 instance is NOT Encrypted(volume), image is not Encrypted
+
+While Creating a image, we can add EBS and ISV Volumes(max 24) with size of 80GB each fixed.
+
+While Creating a image, addtional volumes can be Encrypted
+
+ISV volumes cannot be Encrypted
+
+During the image creation process, Amazon EC2 creates a snapshot of each of the volumes.
+
+You can deprecate an AMI to indicate that it is out of date and should not be used. You can also specify a future deprecation date for an AMI, indicating when the AMI will be out of date.
+
+We can disable the AMI also.
+
++
+launch template contains only confoigurations
+AMI contains entire instance data
+
+launch templates cannot be edited, we can create versions out of it
+
+If the public IP changes for the EC2 instance, Public DNS also changes
+
+Launch more like this will help you to launch EC2 instance with the same confogurations imemdiately 
+
+
+
+
+
+
+Access logs
+Access logs deliver detailed logs of all requests made to your Elastic Load Balancer.
+
+Connection logs
+Connection logs deliver detailed logs of all connections made to your Elastic Load Balancer
+
+Deregistration delay (draining interval)
+The time to wait for in-flight requests to complete while deregistering a target. During this time, the state of the target is draining.
+
+Slow start duration
+Slow start duration is used to specify a period of time where newly registered targets are placed in slow start mode and receive a lower number of requests, giving them time to ramp up. When the slow start duration expires, the load balancer can send the target a full share of requests.
+
+How to Generate HTTPS Certificates
+
+Go have HTTPS Certificate, go to ACM
+To have ACM Certificate, we need to have a Domain Purchase from R53
+Go to ACM --> Click on Request Certificate 
+--> Provide FQDN (Domain Name) which you have purchased in R53
+--> Click on Create Records in R53
+--> use this certificate for the load balancer with HTTPS(ACM)
+
+
+
+
+
+
+
+
+
+

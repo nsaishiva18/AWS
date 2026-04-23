@@ -1,0 +1,48 @@
+25-11-2024
+----------
+
+Login to the ROOT account --> Do the Tour first on Console Home -->  Navigate to IAM service
+
+1. Create Alias , bookmark it IAM user sign-in Link .
+2. Create your own IAM user with admin policy attached
+3. Setup MFA for the IAM user that you have created(yourownname)
+4. Setup MFA for Root account
+**** Signout from root account and login as IAM user that you have just created. From now onwards
+     always login with IAM user with that bookmarked IAM signlink
+5. Create another sample IAM user(testuser1)
+6. Attach/add and detach/remove policies for sample IAM user testuser1(not your main IAM user)
+    --> attach 11 managed policy to the IAM user and see max how many you can attach to IAM user and GROUP also
+7. Create 2 groups and attach users to the groups. Remove users from the group
+8. Try to disable console access to the test IAM user and try to login with that disabled IAM user(see what message you get)
+9. Reset the IAM user password and try to login with the reseted password
+10. Create Access key and Secret Keys for the test IAM user
+11. Make the Keys Deactive.
+12. Delete the KEYS.
+13. See Groups Last Accessed and IAM Last Accessed
+14. Delete the sample IAM Users not yours(dont delete your own iam user)
+
+26-11-2024
+----------
+14: Create a role and assign permissions (3 scenarios - EC2, Lambda, Switch Role )
+15. Create a Inline policy
+16. Create 2 IAM Users(test1 and test2)
+    --> Test1 assign IAMFULLPERMISSIONS
+    --> TEST2 assing IAMREADONLYACCESS
+Logout and login with test1 and verify IAM permissions
+Logout and login with test2 and verify IAM permissions
+
+17. Create IAM Users(test3 )
+      This user should able to only create users,list users,Get users, create group, list group, update user, update group
+    --> Test Test3 custom policy(the one which you just created)
+
+Logout and login with test3 and verify permissions what test3 can do or cannot do
+
+Switch Roles (account id) : Create a test IAM USer in your friends account using switch role (while creating role, attach IAM permissions)
+
+Create Analyzer(External and Unused) and Delete it
+
+Organizations task
+
+Practice IAM Policies
+
+https://medium.com/tensult/aws-policies-with-examples-8340661d35e9
